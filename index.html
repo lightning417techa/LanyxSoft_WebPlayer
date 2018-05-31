@@ -16,6 +16,35 @@
   <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
   <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
   <pre id="logger"></pre>	
+	
+	
+	
+	<script src="https://apis.google.com/js/api.js"></script>
+<script>
+function start() {
+  // 2. Initialize the JavaScript client library.
+  gapi.client.init({
+    'apiKey': 'AIzaSyCiAGriPzNUjPjaOiuU4hkfUsfMi5Sput0',
+    // clientId and scope are optional if auth is not required.
+    'clientId': 'lanyxsoft-webplayer.apps.googleusercontent.com',
+    'scope': 'profile',
+  }).then(function() {
+    // 3. Initialize and make the API request.
+    return gapi.client.request({
+      'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
+    })
+  }).then(function(response) {
+    alert(response.result);
+  }, function(reason) {
+    alert('Error: ' + reason.result.error.message);
+  });
+};
+// 1. Load the JavaScript client library.
+gapi.load('client', start);
+</script>
+	
+	
+	
 
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script>
@@ -42,6 +71,9 @@
         console.old.apply(undefined, arguments);
     };
 })(document.getElementById("logger"));
+	  
+	  
+	  
 	  
 	  
 	  
