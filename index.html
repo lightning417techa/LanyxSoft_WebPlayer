@@ -9,7 +9,7 @@
     .sidenav .closebtn {position: absolute; top: 0; right: 25px; font-size: 36px; margin-left: 50px;}
     @media screen and (max-height: 450px) {.sidenav {padding-top: 15px;} .sidenav a {font-size: 18px;}}
     .VerticalMore {width: 10px; height: 10px; border-radius: 50%; background-color: black; box-shadow: 0px 10px 0px black, 0px 20px 0px black;
-}
+    .MusicPlayerController {width:330px; min-height:460px; /*400px or 450*/ background:#333; overflow:auto; border-radius:10px; box-shadow:0 10px 8px -8px #333; position: scroll; align-items: center;  text-align: center;}
   </style>
   <body>
     
@@ -19,9 +19,12 @@
   <a href="#">Services</a>
   <a href="#">Clients</a>
   <a href="#">Contact</a>
-</div>
-        
-      <div class="VerticalMore" onclick="openNav()"></div>
+</div>      
+    <div class="VerticalMore" onclick="openNav()"></div>
+    
+    <div class="MusicPlayerController">
+      
+    </div>
     
     <script>
       function openNav() {
