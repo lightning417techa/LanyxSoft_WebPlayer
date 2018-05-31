@@ -23,9 +23,15 @@
     </div>
          
        
+    <script src="src/index.js"</script>
+    <script src="//cdn.kik.com/app/3.0.0/app.min.js"></script>
     
     <script>
-      
+      try {
+        App.restore();
+      } catch (err) {
+        alert(App);
+      }
       
     </script>
   </body>
