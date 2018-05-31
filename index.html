@@ -8,22 +8,23 @@
     .sidenav a:hover {color: #f1f1f1;}
     .sidenav .closebtn {position: absolute; top: 0; right: 25px; font-size: 36px; margin-left: 50px;}
     @media screen and (max-height: 450px) {.sidenav {padding-top: 15px;} .sidenav a {font-size: 18px;}}
-    
+    .VerticalMore {width: 30px; height: 30px; border-radius: 50%; background-color: black; box-shadow: 0px 40px 0px black, 0px 80px 0px black;
+}
   </style>
   <body>
     
-    <div id="mySidenav" class="sidenav" onmouseover="openNav()">
+    <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
   <a href="#">Services</a>
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
+    <div class="VerticalMore" onclick="openNav()"></div>
     
-    <button>bgyvbjygvbygjvbygjkivbbhjkb hjkbhjkbhukbhubkiyuhibyuibygitbyuikbygkjvykvykb</button>
-    <script>
       
       function openNav() {
+    
     document.getElementById("mySidenav").style.width = "250px";        
 }
       
