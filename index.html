@@ -19,6 +19,32 @@
 
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script>
+	  
+	(function (logger) {
+    console.old = console.log;
+    console.log = function () {
+        var output = "", arg, i;
+        for (i = 0; i < arguments.length; i++) {
+            arg = arguments[i];
+            output += "<span class=\"log-" + (typeof arg) + "\">";
+            if (
+                typeof arg === "object" &&
+                typeof JSON === "object" &&
+                typeof JSON.stringify === "function"
+            ) {
+                output += JSON.stringify(arg);   
+            } else {
+                output += arg;   
+            }
+            output += "</span>&nbsp;";
+        }
+        logger.innerHTML += output + "<br>";
+        console.old.apply(undefined, arguments);
+    };
+})(document.getElementById("logger"));
+	  
+	  
+	  
     window.onSpotifyWebPlaybackSDKReady = () => {
       const token = 'BQALIXoWcVD_T9tvAZ1L8NWKRHTToUf2wvxXJujEDh7AOU_8bsyGQdvfWP-8j-5GB_eu_6wLE0SXEuyvwUNujM1rqJOXJi7B25-fC24uQKoaY6GkfFuEPSmlynJ6TbxYFHiZP9U2llFv7ikrVA09Uf7tLGXgX04i489R0odwFJ1FBTe3hggncg';
       const player = new Spotify.Player({
@@ -50,28 +76,7 @@
     };
     
     
-     (function (logger) {
-    console.old = console.log;
-    console.log = function () {
-        var output = "", arg, i;
-        for (i = 0; i < arguments.length; i++) {
-            arg = arguments[i];
-            output += "<span class=\"log-" + (typeof arg) + "\">";
-            if (
-                typeof arg === "object" &&
-                typeof JSON === "object" &&
-                typeof JSON.stringify === "function"
-            ) {
-                output += JSON.stringify(arg);   
-            } else {
-                output += arg;   
-            }
-            output += "</span>&nbsp;";
-        }
-        logger.innerHTML += output + "<br>";
-        console.old.apply(undefined, arguments);
-    };
-})(document.getElementById("logger"));
+     
   </script>
 </body>
 </html>
