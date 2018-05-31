@@ -10,14 +10,6 @@
 	    .log-number {color: cyan;}
   </style>
 <head>
-  <title>Spotify Web Playback SDK Quick Start Tutorial</title>
-</head>
-<body>
-  <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
-  <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
-  <pre id="logger"></pre>	
-	
-	
 	
 	<script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -42,74 +34,7 @@ function start() {
 // 1. Load the JavaScript client library.
 gapi.load('client', start);
 	start();
-</script>
-	
-	
-	
-
-  <script src="https://sdk.scdn.co/spotify-player.js"></script>
-  <script>
-	  
-	(function (logger) {
-    console.old = console.log;
-    console.log = function () {
-        var output = "", arg, i;
-        for (i = 0; i < arguments.length; i++) {
-            arg = arguments[i];
-            output += "<span class=\"log-" + (typeof arg) + "\">";
-            if (
-                typeof arg === "object" &&
-                typeof JSON === "object" &&
-                typeof JSON.stringify === "function"
-            ) {
-                output += JSON.stringify(arg);   
-            } else {
-                output += arg;   
-            }
-            output += "</span>&nbsp;";
-        }
-        logger.innerHTML += output + "<br>";
-        console.old.apply(undefined, arguments);
-    };
-})(document.getElementById("logger"));
-	  
-	  
-	  
-	  
-	  
-	  
-    window.onSpotifyWebPlaybackSDKReady = () => {
-      const token = 'BQALIXoWcVD_T9tvAZ1L8NWKRHTToUf2wvxXJujEDh7AOU_8bsyGQdvfWP-8j-5GB_eu_6wLE0SXEuyvwUNujM1rqJOXJi7B25-fC24uQKoaY6GkfFuEPSmlynJ6TbxYFHiZP9U2llFv7ikrVA09Uf7tLGXgX04i489R0odwFJ1FBTe3hggncg';
-      const player = new Spotify.Player({
-        name: 'Web Playback SDK Quick Start Player',
-        getOAuthToken: cb => { cb(token); }
-      });
-
-      // Error handling
-      player.addListener('initialization_error', ({ message }) => { console.error(message); });
-      player.addListener('authentication_error', ({ message }) => { console.error(message); });
-      player.addListener('account_error', ({ message }) => { console.error(message); });
-      player.addListener('playback_error', ({ message }) => { console.error(message); });
-
-      // Playback status updates
-      player.addListener('player_state_changed', state => { console.log(state); });
-
-      // Ready
-      player.addListener('ready', ({ device_id }) => {
-        console.log('Ready with Device ID', device_id);
-      }); 
-
-      // Not Ready
-      player.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id);
-      });
-
-      // Connect to the player!
-      player.connect();
-    };
-    
-    
+</script>  
      
-  </script>
 </body>
 </html>
