@@ -7,6 +7,14 @@
    
     .MusicPlayerController {width:320px; min-height:95%; margin-left:6%; background:#333; border-radius:10px; box-shadow:0 10px 8px -8px #333;  align-items: center; position:scroll; text-align: center;}
     .MusicRelatedController {width:55%; min-height:95%; margin-left:40%; margin-top:-59.5%; background:gray; border-radius:10px; box-shadow:0 10px 8px -8px #333;  align-items: center; position:scroll; text-align: center;}
+    
+    .consolelogs {word-wrap:break-word; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; font-size: 25px; background: #333; max-width: 75ch; min-height: 100%; height: 100% auto;}
+	  .log-boolean {color: orange;}
+	  .log-undefined {color: red;}
+	  .log-object {color: lime;} 
+	  .log-date {color: pink;}
+	  .log-string {color: white;}
+	  .log-number {color: cyan;}
   </style>
   <body>
     <div class="MusicPlayerController">
@@ -16,7 +24,40 @@
     </div>
     
     <div class="MusicRelatedController">
-      
+      <div class="consolelogs">		    
+			    <pre id="logger"></pre>			    
+			    
+			    <script>								    
+				    
+				    (function (logger) {console.old = console.log; console.log = function () {
+        var output = "", arg, i;
+        for (i = 0; i < arguments.length; i++) {
+            arg = arguments[i];
+            output += "<span class=\"log-" + (typeof arg) + "\">";
+            if (
+                typeof arg === "object" &&
+                typeof JSON === "object" &&
+                typeof JSON.stringify === "function"
+            ) {
+                output += JSON.stringify(arg);   
+            } else {
+                output += arg;   
+            } output += "</span>&nbsp;"; }
+        logger.innerHTML += output + "<br>";
+        console.old.apply(undefined, arguments);
+    };})(document.getElementById("logger"));
+
+// Testing
+console.log("Hi!", {a:3, b:6}, 42, true);
+console.log("Multiple", "arguments", "here");
+console.log(null, undefined);
+console.log(navigator.platform,navigator.userAgent, new Date());
+console.log("Platform:", navigator.platform);
+console.log("is online:", navigator.onLine);
+console.log("device language:", navigator.language);				    
+				    			    
+			    </script>
+		    </div>
     </div>
          
        
