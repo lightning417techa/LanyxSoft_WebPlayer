@@ -17,14 +17,6 @@
 	  .wMusicRelatedController {width:58%; min-height:80%; margin-top:-58.4%; margin-right: 5%; float:right; background:gray; border-radius:10px; box-shadow:0 10px 8px -8px #333;  align-items: center; position:scroll; text-align: left;}
 	  @-ms-viewport{width: device-width; height: device-height;}
 	  
-	  
-	  .sidenav {height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #111; overflow-x: hidden; transition: 0.5s; padding-top: 60px;}
-	  .sidenav a {padding: 8px 8px 8px 32px; text-decoration: none; font-size: 25px; color: #818181; display: block; transition: 0.3s;}
-	  .sidenav a:hover {color: #f1f1f1;}
-	  .sidenav .closebtn {position: absolute; top: 0; right: 25px; font-size: 36px; margin-left: 50px;}
-	  .sidenav a {font-size: 18px;}}
-	  
-	  
     .consolelogs {position: scroll; border-radius:10px; word-wrap:break-word; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; font-size: 25px; background: #333; max-width: 75ch; min-height: 100%; height: 100% auto;}
 	  .log-boolean {color: orange;}
 	  .log-undefined {color: red;}
@@ -82,25 +74,7 @@ console.log("device language:", navigator.language);
 	    
     </div>
          
-	  
-	  
-	    <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-</div>
-	  <span style="font-size:24px;width:20px;cursor:pointer" onclick="openNav()">&#9776; op</span>
-<script>
-	  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-	  
-	  
-       
+	
     <script src="src/index.js"</script>
     <script src="//cdn.kik.com/app/3.0.0/app.min.js"></script>
     
