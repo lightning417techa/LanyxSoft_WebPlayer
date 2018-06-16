@@ -40,7 +40,8 @@
   <body>
 	  <script>
 		  Notification.requestPermission().then(function(result) {
-  console.log(result);
+  console.log("Notification status: " + result);
+			  var notification = new Notification("Hi there!");
 });
 	  </script>
 	  <div id="mySidenav" class="sidenav">
