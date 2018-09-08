@@ -80,7 +80,7 @@
       <img src="https://i1.sndcdn.com/artworks-000196531143-5gserj-t500x500.jpg" class="albumArt" id="albumArt">  
     </div>
     
-    <div class="MusicRelatedController">
+    <div id="MRC" class="MusicRelatedController">
       <div class="consolelogs">		    
 	<pre id="logger"></pre>			    
 	<script>								    		    
@@ -116,7 +116,7 @@ console.log("device language:", navigator.language);
 function resize()
 {
   var heights = window.innerHeight;
-  document.getElementById("left").style.height = heights + "px";
+  document.getElementById("MRC").style.height = heights + "px";
 }
 resize();
 window.onresize = function() {
