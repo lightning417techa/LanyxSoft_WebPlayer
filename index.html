@@ -116,7 +116,7 @@ console.log("device language:", navigator.language);
 function resize()
 {
   var heights = window.innerHeight;
-  document.getElementById("MRC").style.height = heights + "px";
+  document.getElementById("MRC").style.height = heights - 10% + "px";
 }
 resize();
 window.onresize = function() {
