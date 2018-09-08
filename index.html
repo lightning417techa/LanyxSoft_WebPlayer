@@ -82,13 +82,11 @@
     
     <div class="MusicRelatedController">
       <div class="consolelogs">		    
-			    <pre id="logger"></pre>			    
-			    
-			    <script>								    
-				    
-				    (function (logger) {console.old = console.log; console.log = function () {
-        var output = "", arg, i;
-        for (i = 0; i < arguments.length; i++) {
+	<pre id="logger"></pre>			    
+	<script>								    		    
+	  (function (logger) {console.old = console.log; console.log = function () {
+          var output = "", arg, i;
+          for (i = 0; i < arguments.length; i++) {
             arg = arguments[i];
             output += "<span class=\"log-" + (typeof arg) + "\">";
             if (
@@ -106,8 +104,7 @@
 
 // Testing
 var orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;    
-console.log(orientation); 
-				    
+console.log(orientation);     
 console.log("Hi!", {a:3, b:6}, 42, true);
 console.log("Multiple", "arguments", "here");
 console.log(null, undefined);
@@ -116,11 +113,18 @@ console.log("Platform:", navigator.platform);
 console.log("is online:", navigator.onLine);
 console.log("device language:", navigator.language);	
 				    
-
+function resize()
+{
+  var heights = window.innerHeight;
+  document.getElementById("left").style.height = heights + "px";
+}
+resize();
+window.onresize = function() {
+  resize();
+};
 				    				    			    
-			    </script>
-		    </div>
-	    
+	</script>
+      </div>
     </div>
          
 	
