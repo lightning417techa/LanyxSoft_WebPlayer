@@ -102,6 +102,9 @@
     };})(document.getElementById("logger"));
 
 // Testing
+var orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;    
+console.log(orientation);
+				    
 console.log("Hi!", {a:3, b:6}, 42, true);
 console.log("Multiple", "arguments", "here");
 console.log(null, undefined);
@@ -110,8 +113,7 @@ console.log("Platform:", navigator.platform);
 console.log("is online:", navigator.onLine);
 console.log("device language:", navigator.language);	
 				    
-var orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;    
-console.log(orientation);
+
 				    				    			    
 			    </script>
 		    </div>
