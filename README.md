@@ -1,1 +1,1 @@
-# LanyxSoft_WebPlayer
+# WebPlayer
